@@ -22,10 +22,10 @@ plex_version_new=$(echo ${plex_url_download} | awk -F '/' '{print($5)}')
 plex_package=$(echo ${plex_url_download} | awk -F '/' '{print($6)}')
 
 case ${plex_type} in
-  (Fedora32|Fedora64) )
+  Fedora32|Fedora64 )
     pkt_manager="dnf -y "
   ;;
-  (CentOS32|CentOS64) )
+  CentOS32|CentOS64 )
     pkt_manager="yum -y "
   ;;
 esac
