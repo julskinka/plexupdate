@@ -10,12 +10,12 @@ plex_type="CentOS64"
 plex_arch="x86_64"
 
 ### Plex Public
-#plex_url_download=$(curl -s https://plex.tv/downloads | grep ${plex_type} | awk -F '"' '{print($2)}')
+plex_url_download=$(curl -s https://plex.tv/downloads | grep ${plex_type} | awk -F '"' '{print($2)}')
 
 ### Plex Pass
-plex_user=""
-plex_password=""
-plex_url_download=$(curl -s --user ${plex_user}:${plex_password} https://plex.tv/downloads?channel=plexpass | grep ${plex_type} | awk -F '"' '{print($2)}')
+#plex_user=""
+#plex_password=""
+#plex_url_download=$(curl -s --user ${plex_user}:${plex_password} https://plex.tv/downloads?channel=plexpass | grep ${plex_type} | awk -F '"' '{print($2)}')
 
 plex_version_current=$(rpm -qa | grep plexmediaserver | sed -e 's/plexmediaserver-//g' -e 's/.'${plex_arch}'//g')
 plex_version_new=$(echo ${plex_url_download} | awk -F '/' '{print($5)}')
