@@ -1,6 +1,7 @@
 #!/bin/bash
 #
 # Author: https://github.com/julskinka
+# https://opensource.org/licenses/GPL-3.0
 #
 # get more using: curl -s https://plex.tv/downloads | grep "data-event-label | less"
 # Fedora64, CentOS64, Fedora32, CentOS32
