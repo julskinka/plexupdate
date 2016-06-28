@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# Author: Bacon McBaconface
+# Author: https://github.com/julskinka
 #
 # get more using: curl -s https://plex.tv/downloads | grep "data-event-label | less"
 # Fedora64, CentOS64, Fedora32, CentOS32
