@@ -5,28 +5,25 @@
 #
 # get more using: curl -s https://plex.tv/downloads | grep "data-event-label | less"
 # Fedora64, CentOS64, Fedora32, CentOS32
-plex_type="CentOS64"
-
-### Arch: i386, x86_64
-plex_arch="x86_64"
+plex_type="CentOS 64-bit"
 
 ### Plex Public
-plex_url_download=$(curl -s https://plex.tv/downloads | grep ${plex_type} | awk -F '"' '{print($2)}')
+plex_url_download=$(curl -s "https://plex.tv/api/downloads/1.json" | python -m json.tool | grep -A1 "${plex_type}" | grep url | awk -F '"' '{print($4)}')
 
 ### Plex Pass
 #plex_user=""
 #plex_password=""
-#plex_url_download=$(curl -s --user ${plex_user}:${plex_password} https://plex.tv/downloads?channel=plexpass | grep ${plex_type} | awk -F '"' '{print($2)}')
+#plex_url_download=$(curl -s --user ${plex_user}:${plex_password} "https://plex.tv/api/downloads/1.json?channel=plexpass" | python -m json.tool | grep -A1 "${plex_type}" | grep url | awk -F '"' '{print($4)}'
 
 plex_version_current=$(rpm -qa | grep plexmediaserver | sed -e 's/plexmediaserver-//g' -e 's/.'${plex_arch}'//g')
 plex_version_new=$(echo ${plex_url_download} | awk -F '/' '{print($5)}')
 plex_package=$(echo ${plex_url_download} | awk -F '/' '{print($6)}')
 
 case ${plex_type} in
-  Fedora32|Fedora64 )
+  "Fedora 32-bit"|"Fedora 64-bit" )
     pkt_manager="dnf -y "
   ;;
-  CentOS32|CentOS64 )
+  "CentOS 32-bit"|"CentOS 64-bit" )
     pkt_manager="yum -y "
   ;;
 esac
