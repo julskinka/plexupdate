@@ -1,7 +1,7 @@
 #!/bin/bash
 #
-# Author: https://github.com/julskinka
-# https://opensource.org/licenses/GPL-3.0
+# Copyleft 2015 Julskinka (https://github.com/julskinka)
+# https://www.gnu.org/licenses/gpl.txt
 #
 
 # Fedora 64-bit, CentOS 64-bit, Fedora 32-bit, CentOS 32-bit
